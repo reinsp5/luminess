@@ -12,6 +12,6 @@
 }
 
 :root {
+  @apply bg-primary-50;
   font-family: "LINE Seed JP", sans-serif;
-  overflow: hidden;
 }

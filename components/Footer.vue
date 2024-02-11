@@ -4,7 +4,7 @@ const config = useRuntimeConfig();
 
 <template>
   <footer>
-    Copyright&copy; 2024 {{ config.public.siteName }}
+    <div class="flex w-full justify-end">Copyright&copy; 2024 {{ config.public.siteName }}</div>
   </footer>
 </template>
 
