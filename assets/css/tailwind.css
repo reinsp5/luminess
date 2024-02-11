@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "LINE Seed JP";
+  font-display: swap;
+  src:
+    url("@/assets/fonts/LINESeedJP_OTF_Rg.woff2") format("woff2"),
+    url("@/assets/fonts/LINESeedJP_OTF_Rg.woff") format("woff");
+  font-weight: 700;
+}
+
+:root {
+  font-family: "LINE Seed JP", sans-serif;
+  overflow: hidden;
+}

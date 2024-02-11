@@ -1,9 +1,11 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+definePageMeta({
+  layout: "home",
+});
+</script>
 
 <template>
-  <div>
-    Page: foo
-  </div>
+  <HeroArea />
 </template>
 
 <style scoped></style>

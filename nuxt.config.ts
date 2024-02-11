@@ -1,4 +1,24 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true }
-})
+  devtools: { enabled: true },
+  modules: [
+    "@nuxt/image",
+    "nuxt-icon",
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/google-fonts",
+    "@nuxtjs/fontaine",
+    "@nuxtjs/html-validator",
+  ],
+  runtimeConfig: {
+    public: {
+      siteName: "",
+    },
+  },
+  app: {
+    head: {
+      title: "Luminess",
+      htmlAttrs: {
+        lang: "ja",
+      },
+    },
+  },
+});

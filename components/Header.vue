@@ -1,11 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <Header />
-  <main class="grow">
-    <slot />
-  </main>
-  <Footer />
+  <header></header>
 </template>
 
 <style scoped></style>
