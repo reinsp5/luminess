@@ -1,4 +1,4 @@
-interface Common {
+export interface Common {
   skip: number;
   limit: number;
   total: number;

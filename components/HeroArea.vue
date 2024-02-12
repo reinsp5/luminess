@@ -1,11 +1,17 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import type { SlideshowImage } from '@/interfaces/slideshow';
+
+const photos = defineModel<SlideshowImage[]>("photos", {
+  required: true,
+});
+const length = defineModel<number>("length", {
+  required: true,
+});
+</script>
 
 <template>
-  <section class="flex w-full justify-end">
-    <NuxtImg
-     class="w-dvw min-h-dvh object-cover"
-      src="https://ik.imagekit.io/reinsp5/luminess/6a1cb358-9f03-449c-83e2-80196997d3c3/pso20230112_234108_023.webp"
-    />
+  <section>
+    <SlideShow v-model:photos="photos" v-model:length="length" />
   </section>
 </template>
 

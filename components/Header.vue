@@ -35,13 +35,13 @@ const links = usePageLinks();
     </div>
     <!-- 暗転部 -->
     <div
-      class="fixed inset-0 h-dvh w-dvw bg-black opacity-50 z-50"
+      class="fixed inset-0 z-50 h-dvh w-dvw bg-black opacity-50"
       v-show="isDrawerOpen"
       @click="isDrawerOpen = false"
     />
     <!-- モバイル用ドロワー -->
     <nav
-      class="fixed right-0 top-0 h-dvh w-96 bg-primary-950 duration-200 z-50"
+      class="fixed right-0 top-0 z-50 h-dvh w-96 bg-primary-950 duration-200"
       :class="[isDrawerOpen ? 'translate-x-0' : 'translate-x-full']"
     >
       <div class="relative h-full w-full">
@@ -53,7 +53,11 @@ const links = usePageLinks();
         </div>
         <ul class="mobile relative flex w-full flex-col pt-32">
           <li v-for="link in links">
-            <NuxtLink :to="link.path" class="flex h-full w-full items-center">
+            <NuxtLink
+              :to="link.path"
+              class="flex h-full w-full items-center"
+              @click="isDrawerOpen = false"
+            >
               <IconCSS :name="link.icon" size="40" />
               <span class="px-2">{{ link.name }}</span>
             </NuxtLink>
