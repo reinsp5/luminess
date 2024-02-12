@@ -1,6 +1,7 @@
 export interface Member {
   _id: string;
   name: string;
+  nameEN: string;
   avatar: {
     _id: string;
     src: string;

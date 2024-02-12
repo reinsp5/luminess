@@ -12,6 +12,11 @@ export default defineNuxtConfig({
   experimental: {
     inlineRouteRules: true, // defineRouteRules()を使用可能にする
   },
+  googleFonts: {
+    families: {
+      Antonio: [400],
+    },
+  },
   runtimeConfig: {
     newt: {
       spaceUid: process.env.NUXT_NEWT_SPACE_UID || "",

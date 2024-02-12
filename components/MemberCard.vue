@@ -8,20 +8,20 @@ const posClass = (value: String) => {
   if (!value) return;
   switch (value) {
     case "master":
-      return "bg-blue-800";
+      return "border-blue-600";
     case "manager":
-      return "bg-teal-800";
+      return "border-teal-600";
     case "common":
-      return "bg-rose-800";
+      return "border-rose-600";
     case "visitor":
-      return "bg-blue-500";
+      return "border-blue-500";
   }
 };
 </script>
 
 <template>
   <div
-    class="my-8 grid grid-cols-1 lg:grid-cols-2 rounded-2xl border border-primary-950 overflow-hidden bg-white"
+    class="mx-4 grid grid-cols-1 overflow-hidden border border-primary-950 bg-primary-950 text-white lg:mx-0"
   >
     <NuxtImg
       provider="imagekit"
@@ -33,19 +33,23 @@ const posClass = (value: String) => {
       quality="80"
       :alt="props.member.avatar.altText"
     />
-    <div class="relative p-4 flex flex-col">
-      <h2 class="text-3xl font-bold" :class="props.member.position.slug">{{ props.member.name }}</h2>
-      <div
-        class="w-fit py-1 px-4 text-white rounded-3xl ml-auto flex items-center"
-        :class="posClass(props.member.position.slug)"
-      >
-        {{ props.member.position.name }}
+    <div class="relative flex flex-col overflow-hidden p-4">
+      <div class="flex flex-col">
+        <small class="font-bold" :class="posClass(props.member.position.slug)">
+          {{ props.member.position.name }}
+        </small>
+        <div class="flex flex-col">
+          <h2 class="text-3xl font-bold" :class="props.member.position.slug">
+            {{ props.member.name }}
+          </h2>
+          <span class="name_en text-xl">{{ props.member.nameEN }}</span>
+        </div>
       </div>
       <!-- 使用クラス -->
-      <div class="mt-4 flex items-center z-10">
-        <span class="inline-block w-30 text-md lg:text-lg mr-2"
-          >使用クラス</span
-        >
+      <div class="z-10 mt-4 flex items-center">
+        <span class="w-30 text-md mr-2 inline-block lg:text-lg">
+          使用クラス
+        </span>
         <NuxtImg
           v-for="useClass in props.member.useClass"
           :key="useClass._id"
@@ -53,15 +57,15 @@ const posClass = (value: String) => {
           provider="imagekit"
           sizes="sm:30px lg:40px"
           fit="pad_extract"
-          class="mx-2 w-7 h-7 lg:w-10 lg:h-10 inline"
+          class="mx-2 inline h-7 w-7 lg:h-10 lg:w-10"
           :alt="useClass.name"
         />
       </div>
       <!-- 使用プラットフォーム -->
-      <div class="mt-4 flex items-center z-10">
-        <span class="inline-block w-30 text-md lg:text-lg mr-2"
-          >プレイ環境</span
-        >
+      <div class="z-10 mt-4 flex items-center">
+        <span class="w-30 text-md mr-2 inline-block lg:text-lg">
+          プレイ環境
+        </span>
         <NuxtImg
           v-for="usePlatform in props.member.platform"
           :key="usePlatform._id"
@@ -69,21 +73,24 @@ const posClass = (value: String) => {
           provider="imagekit"
           sizes="sm:30px lg:40px"
           fit="pad_extract"
-          class="mx-2 w-7 h-7 lg:w-10 lg:h-10 inline"
+          class="platform mx-2 inline h-7 w-7 lg:h-10 lg:w-10"
           :alt="usePlatform.name"
         />
       </div>
+      <NuxtImg
+        class="absolute bottom-[-80px] right-[-80px] opacity-40"
+        src="/images/ngs_arks_logo.png"
+      />
     </div>
   </div>
 </template>
 
 <style scoped>
-.arks {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+small {
+  @apply border-l-8 pl-2 text-base;
+}
+
+.name_en {
+  font-family: "Antonio", sans-serif;
 }
 </style>

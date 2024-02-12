@@ -34,7 +34,7 @@ useHead({
 </script>
 
 <template>
-  <article class="container mx-auto py-8">
+  <article class="container mx-auto py-8 about">
     <h1>{{ article?.title }}</h1>
     <!-- eslint-disable-next-line vue/no-v-html -->
     <div v-html="article?.body" class="w-full" />
